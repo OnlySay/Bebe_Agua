@@ -1,9 +1,9 @@
 // hooks/use-first-launch.ts
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 
 const TUTORIAL_SEEN_KEY = '@bebe_agua:tutorial_seen';
-
 export function useFirstLaunch() {
   const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +36,7 @@ export function useFirstLaunch() {
     try {
       await AsyncStorage.removeItem(TUTORIAL_SEEN_KEY);
       setIsFirstLaunch(true);
+      router.replace('/welcome');
     } catch (error) {
       console.error('Error resetting tutorial state:', error);
     }

@@ -25,10 +25,18 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="configuraiton"
+        name="stats"
+        options={{
+          title: 'Estadísticas',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="chart.bar.fill" color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="configuration"
         options={{
           title: 'Configuracion',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gearshape.fill" color={color} />,
         }}
       />
     </Tabs>

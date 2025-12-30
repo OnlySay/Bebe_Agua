@@ -1,8 +1,3 @@
-/**
- * Hydro Pixel Theme 💧🎮
- * Paleta de colores para la app de hidratación con estética pixel art.
- */
-
 import { Platform } from 'react-native';
 
 // Colores principales de agua
@@ -30,6 +25,8 @@ export const Colors = {
     icon: '#0096C7',
     tabIconDefault: '#90A4AE',
     tabIconSelected: tintColorLight,
+
+    card: '#CAF0F8',
 
     // Pixel art - Estados del agua
     water: '#00B4D8',                // Gota de agua
@@ -63,6 +60,8 @@ export const Colors = {
     waterLight: '#48CAE4',
     waterDark: '#0077B6',
     bubble: '#90E0EF',
+
+    card: '#0A1628',
   },
 };
 
