@@ -980,6 +980,7 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 Desarrollado como demostración de tecnologías modernas para desarrollo móvil con React Native.
 
+ 
 ---
 
 **Nota:** Este proyecto utiliza JSONPlaceholder como API de ejemplo. En producción, reemplaza la URL base en `store/api/baseApi.ts` con tu API real.
