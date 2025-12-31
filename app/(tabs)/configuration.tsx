@@ -1,6 +1,7 @@
 import { StyleSheet, Switch, View } from 'react-native';
 
 import Body from '@/components/body';
+import { Select } from '@/components/design-system/Select';
 import { ThemedText } from '@/components/themed-text';
 import { useNotifications } from '@/hooks/use-notification';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -16,7 +17,10 @@ export default function ConfigurationScreen() {
   // Hook de notificaciones que combina permisos del sistema + preferencia del usuario
   const {
     enabled: notificationsEnabled,
-    handleNotificationsChange
+    reminderIntervalMinutes,
+    intervalOptions,
+    handleIntervalChange,
+    handleNotificationsChange,
   } = useNotifications();
 
   const handleDarkModeChange = (value: boolean) => {
@@ -46,6 +50,15 @@ export default function ConfigurationScreen() {
             <ThemedText type="default">Notificaciones</ThemedText>
           </View>
         </View>
+
+        {notificationsEnabled && (
+            <Select
+              label="¿Cada cuánto quieres que te notifiquemos?"
+              options={intervalOptions}
+              value={reminderIntervalMinutes}
+              onValueChange={(value) => handleIntervalChange(value as number)}
+            />
+          )}
       </View>
     </Body>
   );

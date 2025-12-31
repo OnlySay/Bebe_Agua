@@ -19,7 +19,6 @@ export default function WelcomeScreen() {
   const { goal, setGoal } = useWater();
   const [step, setStep] = useState(1);
 
-  // Hook de notificaciones
   const {
     enabled: notificationsEnabled,
     reminderIntervalMinutes,
@@ -44,6 +43,7 @@ export default function WelcomeScreen() {
     markTutorialAsSeen();
     router.replace('/(tabs)');
   };
+
 
   return (
     <Body style={styles.body}>
@@ -71,7 +71,7 @@ export default function WelcomeScreen() {
             ¿Cuál es tu edad?
           </ThemedText>
           <Input
-            value={age.toString()}
+            value={isNaN(age) ? '0' : age?.toString()}
             keyboardType="numeric"
             placeholder="18"
             onChangeText={(text) => setAge(parseInt(text))}
@@ -100,6 +100,7 @@ export default function WelcomeScreen() {
           <Button title="Continuar" onPress={() => setStep(step + 1)} />
         </>
       )}
+
       {step === 2 && (
         <>
           <View style={styles.iconContainer}>
@@ -128,6 +129,7 @@ export default function WelcomeScreen() {
           <Button title="Continuar" onPress={() => setStep(step + 1)} />
         </>
       )}
+
       {step === 3 && (
         <>
           <View style={styles.iconContainer}>
@@ -157,7 +159,7 @@ export default function WelcomeScreen() {
           <Button title="Continuar" onPress={() => setStep(step + 1)} />
         </>
       )}
-
+      
       {step === 4 && (
         <>
           <ThemedText type="title">¡Listo! </ThemedText>
